@@ -10,7 +10,6 @@ int eliminate(Matrix *mat, Matrix *b){
 	int i;
 	int j;
 	int k;
-	
 	for( i=0; i<r-1; i++)
 	{
 	for( j=i+1; j<r; j++)
