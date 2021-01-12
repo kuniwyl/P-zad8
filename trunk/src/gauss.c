@@ -1,8 +1,17 @@
 #include "gauss.h"
+#include <stdlib.h>
+#include <stdio.h>
+
 /**
  * Zwraca 0 - elimnacja zakonczona sukcesem
  * Zwraca 1 - macierz osobliwa - dzielenie przez 0
  */
+double mod(double x)
+{
+	if(x < 0)return (-1)*x;
+	else return x;
+}
+
 int eliminate(Matrix *mat, Matrix *b){
         int r = mat->r;
         int c = mat->c;
