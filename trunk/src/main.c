@@ -10,21 +10,33 @@ int main(int argc, char ** argv) {
 	Matrix * A = readFromFile(argv[1]);
 	Matrix * b = readFromFile(argv[2]);
 	Matrix * x;
+	
+	int t=0;
 
-	if (A == NULL) return -1;
-	if (b == NULL) return -2;
-	printToScreen(A);
-	printToScreen(b);
+	if (A == NULL) t= -1;
+	if (b == NULL) t= -2;
+	if (t<0){
+		printf("Blad wczytywania macierzy");
+		return 1;
+	}
 
 	res = eliminate(A,b);
+
 	x = createMatrix(b->r, 1);
+
 	if (x != NULL) {
 		res = backsubst(x,A,b);
-
-		printToScreen(x);
+		if(res == 0)printf("OK.\n");
+		else
+		if(res == 1)printf("BŁĄD.\n");
+		else
+		if(res == 2)printf("BŁĄD.\n");
 	  freeMatrix(x);
-	} else {
-					fprintf(stderr,"Błąd! Nie mogłem utworzyć wektora wynikowego x.\n");
+	}
+       	else 
+	{ 
+		printf("Wystapil blad.\n");
+		return 1;
 	}
 
 	freeMatrix(A);
