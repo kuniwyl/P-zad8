@@ -44,7 +44,11 @@ int eliminate(Matrix *mat, Matrix *b){
            double z = b->data[i][0];
            b->data[i][0] = b->data[ya][0]; 
            b->data[ya][0] = z;        
-        if(mat->data[i][i] == 0)return 1;
+        if(mat->data[i][i] == 0)
+        {
+            printf("Macierz jest osobliwa\n");
+            return 1;
+        }
         double tym = (-1) * mat->data[j][i] / mat->data[i][i];  
         for( k=i; k<r; k++)
         {

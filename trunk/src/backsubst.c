@@ -35,7 +35,7 @@ int  backsubst(Matrix *x, Matrix *mat, Matrix *b) {
         for( int ic= ir+1; ic < c; ic++ ) s += x->data[ic][0] * mat->data[ir][ic];
         if( mat->data[ir][ir] == 0 ) 
         {
-        fprintf( stderr, "Ta metoda nie potrafi obliczyć tego układu równań!\n");
+        fprintf( stderr, "Macierz jest nieosobliwa!\n");
         return 1;
         }
         x->data[ir][0] = (b->data[ir][0] - s) / mat->data[ir][ir];  

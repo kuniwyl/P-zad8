@@ -14,7 +14,11 @@ Matrix * readFromFile(char * fname) {
 
 				if (fin != NULL) {
 					fscanf(fin,"%d %d",&r,&c);
-					mat = createMatrix(r,c);
+                if( r < 1 || c < 1)
+                    {
+                        fprintf( stderr, "Podana macierz ma zly format!\n");
+                    }
+                   	mat = createMatrix(r,c);
 					if (mat != NULL) {
 						for (ir = 0; ir < r; ir++) 
 							for (ic = 0; ic < c; ic++)
